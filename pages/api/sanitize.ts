@@ -12,13 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { text } = req.body;
 
-  if (!text) {
-    return res.status(400).json({ error: "Missing input text" });
+  if (!text || text.trim().length === 0) {
+    return res.status(400).json({ error: "Missing or empty input text." });
   }
 
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo", // fallback from gpt-4
       messages: [
         {
           role: "system",
@@ -34,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const sanitized = response.choices[0].message.content;
     return res.status(200).json({ sanitized });
   } catch (err: any) {
-    console.error("OpenAI error:", err.message);
+    console.error("🔴 OpenAI Error:", err.message || err);
     return res.status(500).json({ error: "Failed to sanitize message." });
   }
 }
