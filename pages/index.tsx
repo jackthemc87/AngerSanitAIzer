@@ -12,7 +12,7 @@ export default function Home() {
     setError("");
 
     try {
-      const res = await fetch("/api/sanitize", {
+      const res = await fetch("https://anger-sanit-a-izer.vercel.app/api/sanitize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input }),
