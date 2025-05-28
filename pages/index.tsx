@@ -14,18 +14,16 @@ export default function Home() {
     try {
       const res = await fetch("/api/sanitize", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input }),
       });
 
-      if (!res.ok) {
-        const errData = await res.json();
-        setError(errData.error || "An unknown error occurred.");
-      } else {
-        const data = await res.json();
+      const data = await res.json();
+
+      if (res.ok) {
         setSanitized(data.sanitized);
+      } else {
+        setError(data.error || "Something went wrong.");
       }
     } catch (err) {
       setError("Failed to reach the server.");
@@ -69,7 +67,7 @@ export default function Home() {
           borderRadius: "4px",
         }}
       >
-        {loading ? "Sanitizing..." : "SanitAIze It"}
+        {loading ? "SanitAIzing..." : "SanitAIze It"}
       </button>
 
       {error && (
@@ -86,7 +84,7 @@ export default function Home() {
             border: "1px solid #ddd",
           }}
         >
-          <h3 style={{ marginBottom: "0.5rem" }}>Sanitized Version:</h3>
+          <h3 style={{ marginBottom: "0.5rem" }}>SanitAIzed Version:</h3>
           <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
         </div>
       )}
@@ -95,7 +93,11 @@ export default function Home() {
         The Anger SanitAIzer was created by Jack McNamara, a freelance advertising creative.{" "}
         <a href="https://jack-mcnamara.com" target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
           See his book
-        </a>
+        </a>{" "}
+        or{" "}
+        <a href="mailto:jackmcnamara@duck.com" style={{ textDecoration: "underline" }}>
+          contact him here
+        </a>.
       </footer>
     </div>
   );
