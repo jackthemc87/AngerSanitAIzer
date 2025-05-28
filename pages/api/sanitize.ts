@@ -6,9 +6,7 @@ const openai = new OpenAI({
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).end();
-  }
+  if (req.method !== 'POST') return res.status(405).end();
 
   const { text } = req.body;
 
@@ -18,20 +16,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       messages: [
         {
           role: "system",
-          content:
-            "You are a polite, professional assistant who rewrites angry or inappropriate messages into warm, diplomatic, HR-approved language.",
+          content: "You rewrite angry messages into polite, professional, friendly messages that HR would approve of."
         },
         {
           role: "user",
-          content: `Rewrite this message professionally:\n\n"${text}"`,
-        },
-      ],
+          content: `Rewrite this:\n\n"${text}"`
+        }
+      ]
     });
 
-    const sanitized = chatCompletion.choices[0].message?.content || "";
-    res.status(200).json({ sanitized });
-  } catch (error) {
-    console.error("Error calling OpenAI:", error);
-    res.status(500).json({ error: "Failed to sanitize message." });
+    res.status(200).json({ sanitized: chatCompletion.choices[0].message?.content || "" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "OpenAI request failed." });
   }
 }
