@@ -4,19 +4,31 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [sanitized, setSanitized] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSanitize = async () => {
     setLoading(true);
     setSanitized("");
+    setError("");
 
-    const res = await fetch("/api/sanitize", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: input }),
-    });
+    try {
+      const res = await fetch("/api/sanitize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: input }),
+      });
 
-    const data = await res.json();
-    setSanitized(data.sanitized || "Error processing.");
+      const data = await res.json();
+
+      if (res.ok) {
+        setSanitized(data.sanitized);
+      } else {
+        setError(data.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Failed to reach the server.");
+    }
+
     setLoading(false);
   };
 
@@ -32,19 +44,46 @@ export default function Home() {
         onChange={(e) => setInput(e.target.value)}
         rows={8}
         placeholder="Paste your angry message here..."
-        style={{ width: "100%", padding: "1rem", marginBottom: "1rem", fontSize: "1rem" }}
+        style={{
+          width: "100%",
+          padding: "1rem",
+          marginBottom: "1rem",
+          fontSize: "1rem",
+          border: "1px solid #ccc",
+          borderRadius: "4px",
+        }}
       />
 
       <button
         onClick={handleSanitize}
         disabled={loading}
-        style={{ padding: "0.75rem 1.5rem", fontWeight: "bold", backgroundColor: "#000", color: "#fff", border: "none" }}
+        style={{
+          padding: "0.75rem 1.5rem",
+          fontWeight: "bold",
+          backgroundColor: "#000",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+          borderRadius: "4px",
+        }}
       >
         {loading ? "Sanitizing..." : "SanitAIze It"}
       </button>
 
+      {error && (
+        <div style={{ color: "red", marginTop: "1rem" }}>{error}</div>
+      )}
+
       {sanitized && (
-        <div style={{ marginTop: "2rem", backgroundColor: "#f9f9f9", padding: "1rem", borderRadius: "8px" }}>
+        <div
+          style={{
+            marginTop: "2rem",
+            backgroundColor: "#f9f9f9",
+            padding: "1rem",
+            borderRadius: "8px",
+            border: "1px solid #ddd",
+          }}
+        >
           <h3 style={{ marginBottom: "0.5rem" }}>Sanitized Version:</h3>
           <pre style={{ whiteSpace: "pre-wrap" }}>{sanitized}</pre>
         </div>
