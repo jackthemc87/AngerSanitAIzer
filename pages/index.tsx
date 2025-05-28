@@ -85,7 +85,7 @@ export default function Home() {
           }}
         >
           <h3 style={{ marginBottom: "0.5rem" }}>Sanitized Version:</h3>
-          <pre style={{ whiteSpace: "pre-wrap" }}>{sanitized}</pre>
+          <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
         </div>
       )}
 
