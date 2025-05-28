@@ -1,36 +1,37 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { Configuration, OpenAIApi } from 'openai';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import OpenAI from 'openai';
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') return res.status(405).end();
+  if (req.method !== 'POST') {
+    return res.status(405).end();
+  }
 
   const { text } = req.body;
 
   try {
-    const response = await openai.createChatCompletion({
+    const chatCompletion = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [
         {
           role: "system",
-          content: "You are a polite, professional assistant who rewrites angry messages into warm, respectful, and HR-safe language."
+          content:
+            "You are a polite, professional assistant who rewrites angry or inappropriate messages into warm, diplomatic, HR-approved language.",
         },
         {
           role: "user",
-          content: `Rewrite this message professionally:\n\n"${text}"`
-        }
+          content: `Rewrite this message professionally:\n\n"${text}"`,
+        },
       ],
-      temperature: 0.7,
     });
 
-    const sanitized = response.data.choices[0].message?.content || "";
+    const sanitized = chatCompletion.choices[0].message?.content || "";
     res.status(200).json({ sanitized });
   } catch (error) {
-    console.error(error);
+    console.error("Error calling OpenAI:", error);
     res.status(500).json({ error: "Failed to sanitize message." });
   }
 }
