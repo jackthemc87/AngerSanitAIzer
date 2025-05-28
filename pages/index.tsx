@@ -12,18 +12,20 @@ export default function Home() {
     setError("");
 
     try {
-      const res = await fetch("https://anger-sanit-a-izer.vercel.app/api/sanitize", {
+      const res = await fetch("/api/sanitize", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ text: input }),
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        setSanitized(data.sanitized);
+      if (!res.ok) {
+        const errData = await res.json();
+        setError(errData.error || "An unknown error occurred.");
       } else {
-        setError(data.error || "Something went wrong.");
+        const data = await res.json();
+        setSanitized(data.sanitized);
       }
     } catch (err) {
       setError("Failed to reach the server.");
