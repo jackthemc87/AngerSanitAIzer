@@ -39,7 +39,7 @@ export default function Home() {
         <title>The Anger SanitAIzer</title>
         <meta name="description" content="Turn your angry work emails into HR-safe replies with AI." />
 
-        {/* Open Graph for social sharing (LinkedIn, Facebook) */}
+        {/* Open Graph / LinkedIn Preview */}
         <meta property="og:title" content="The Anger SanitAIzer" />
         <meta property="og:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta property="og:image" content="https://i.ibb.co/fznrRVN6/Correct-Size.png" />
@@ -123,6 +123,9 @@ export default function Home() {
         <a href="mailto:jackmcnamara@duck.com" style={{ textDecoration: "underline" }}>
           contact him here
         </a>.
+        <div style={{ marginTop: "1rem", fontSize: "0.75rem", color: "#bbb" }}>
+          Disclaimer: The Anger SanitAIzer is intended for humorous and illustrative purposes only. It does not provide legal, HR, or psychological advice. Use at your own discretion.
+        </div>
       </footer>
     </div>
   );
