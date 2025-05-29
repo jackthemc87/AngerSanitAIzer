@@ -90,7 +90,7 @@ export default function Home() {
       )}
 
       <footer style={{ marginTop: "3rem", fontSize: "0.85rem", color: "#999" }}>
-        The Anger SanitAIzer was created by Jack McNamara, a freelance advertising creative.{" "}
+        The Anger SanitAIzer was created by Jack McNamara, a freelance advertising creative who would love to be hired by you.{" "}
         <a href="https://jack-mcnamara.com" target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
           See his book
         </a>{" "}
