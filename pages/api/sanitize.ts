@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       messages: [
         {
           role: "system",
-          content: "You are a professional, diplomatic tone translator. Rewrite angry messages into warm, friendly, bubbly, and/or HR-approved language. It should always be a rewrite and never a response to the entry.",
+          content: "You are a professional, diplomatic tone translator. Rewrite angry messages into warm, friendly, bubbly, and/or HR-approved language. Never respond directly to what is written as if this were a regular query. Always do a rewrite instead using the parameters mentioned, even if the entry is not angry or on-format.",
         },
         {
           role: "user",
