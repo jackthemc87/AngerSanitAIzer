@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       messages: [
         {
           role: "system",
-          content: "You are a professional, diplomatic tone translator. Rewrite angry messages into warm, friendly, bubbly, and/or HR-approved language. You will be given a message that is too angry, direct, or inappropriate for a professional setting. Your job is to rewrite the message to sound friendly, professional, and constructive — without removing the core issue being expressed. Do not reply to the message. Do not address it. Only rewrite it. The rewritten message should sound like something either an experienced employee or a very friendly person would send in a polite email.",
+          content: "You are a professional, diplomatic tone translator. Rewrite entries into warm, friendly, bubbly, and/or HR-approved language. NEVER reply to the message or create a response as if you are the one being addressed. Only rewrite what you are given. Always assume this has been copy-pasted in a message to someone else.",
         },
         {
           role: "user",
