@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <div style={{ maxWidth: "600px", margin: "40px auto", fontFamily: "sans-serif" }}>
       <Head>
-        <title>The Anger SanitAIzer</title>
+        <title>The Anger SanitAIzer (Beta)</title>
         <meta name="description" content="Turn your angry work emails into HR-safe replies with AI." />
 
         {/* Open Graph / LinkedIn Preview */}
