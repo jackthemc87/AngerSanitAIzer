@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       messages: [
         {
           role: "system",
-          content: "You are a professional, diplomatic tone translator. Rewrite angry messages into warm, friendly, bubbly, and/or HR-approved language.",
+          content: "You are a professional, diplomatic tone translator. Rewrite angry messages into warm, friendly, bubbly, and/or HR-approved language. Make minimal use of emojis when possible.",
         },
         {
           role: "user",
