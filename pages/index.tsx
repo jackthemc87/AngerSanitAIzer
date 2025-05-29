@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -34,6 +35,10 @@ export default function Home() {
 
   return (
     <div style={{ maxWidth: "600px", margin: "40px auto", fontFamily: "sans-serif" }}>
+      <Head>
+        <title>The Anger SanitAIzer</title>
+      </Head>
+
       <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>The Anger SanitAIzer</h1>
       <p style={{ marginBottom: "1rem", color: "#666" }}>
         Say the things you really want to say at work without the repercussions.
