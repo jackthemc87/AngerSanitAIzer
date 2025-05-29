@@ -91,7 +91,7 @@ export default function Home() {
         </button>
 
         <span style={{ fontSize: "0.9rem", color: "#444" }}>
-          Made with the personality-stripping power of A.I.
+          Nothing strips the personality out like A.I. Why not make it work for you?
         </span>
       </div>
 
