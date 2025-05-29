@@ -55,7 +55,7 @@ export default function Home() {
 
       <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>The Anger SanitAIzer</h1>
       <p style={{ marginBottom: "1rem", color: "#666" }}>
-        Say all the things you want to say at work with none of the repercussions.
+        Say the things you really want to say at work without the repercussions.
       </p>
 
       <textarea
@@ -123,10 +123,13 @@ export default function Home() {
         <a href="mailto:jackmcnamara@duck.com" style={{ textDecoration: "underline" }}>
           contact him here
         </a>.
-        <div style={{ marginTop: "1rem", fontSize: "0.75rem", color: "#bbb" }}>
-          Disclaimer: The Anger SanitAIzer is intended for humorous and illustrative purposes only. It does not provide legal, HR, or psychological advice. Use at your own discretion.
-        </div>
       </footer>
+
+      {/* LEGAL DISCLAIMER */}
+      <div style={{ marginTop: "2rem", fontSize: "0.75rem", color: "#bbb", textAlign: "center" }}>
+        Disclaimer: The Anger SanitAIzer is intended for humorous and illustrative purposes only.
+        It does not provide legal, HR, or psychological advice. Use at your own discretion.
+      </div>
     </div>
   );
 }
