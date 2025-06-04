@@ -55,7 +55,7 @@ export default function Home() {
 
       <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>The Anger SanitAIzer</h1>
       <p style={{ marginBottom: "1rem", color: "#666" }}>
-        Say the things you really want to say at work without any of the repercussions.
+        Say the things you really want to say without the repercussions.
       </p>
 
       <textarea
