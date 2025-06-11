@@ -39,13 +39,13 @@ export default function Home() {
         <title>The Anger SanitAIzer (Beta)</title>
         <meta name="description" content="Turn your angry work emails into HR-safe replies with AI." />
         <meta property="og:title" content="The Anger SanitAIzer" />
-        <meta property="og:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
+        <meta property="og:description" content=" your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta property="og:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
         <meta property="og:url" content="https://angersanitaizer.xyz" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="The Anger SanitAIzer" />
-        <meta name="twitter:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
+        <meta name="twitter:description" content=" your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta name="twitter:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
 
         <style>{`
@@ -80,7 +80,7 @@ export default function Home() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         rows={8}
-        placeholder="Paste your angry message here..."
+        placeholder="Place your angry message here..."
         style={{
           width: "100%",
           padding: "1rem",
