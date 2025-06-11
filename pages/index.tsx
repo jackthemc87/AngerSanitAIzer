@@ -38,22 +38,50 @@ export default function Home() {
       <Head>
         <title>The Anger SanitAIzer (Beta)</title>
         <meta name="description" content="Turn your angry work emails into HR-safe replies with AI." />
-
-        {/* Open Graph / LinkedIn Preview */}
         <meta property="og:title" content="The Anger SanitAIzer" />
         <meta property="og:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta property="og:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
         <meta property="og:url" content="https://angersanitaizer.xyz" />
         <meta property="og:type" content="website" />
-
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="The Anger SanitAIzer" />
         <meta name="twitter:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta name="twitter:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
+
+        {/* Vibrating Animation */}
+        <style>{`
+          @keyframes shake {
+            0% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0); }
+          }
+
+          .shaky {
+            display: inline-block;
+            color: red;
+            animation: shake 0.3s ease-in-out infinite;
+            animation-play-state: paused;
+          }
+
+          .shaky:hover {
+            animation-play-state: running;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .shaky {
+              animation: none !important;
+            }
+          }
+        `}</style>
       </Head>
 
-      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>The Anger SanitAIzer</h1>
+      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+        The <span className="shaky">Anger</span> SanitAIzer
+      </h1>
+
       <p style={{ marginBottom: "1rem", color: "#666" }}>
         Say the things you really want to say without the repercussions.
       </p>
@@ -72,6 +100,13 @@ export default function Home() {
           borderRadius: "4px",
         }}
       />
+
+      {/* TIP */}
+      <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4" }}>
+        <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.<br />
+        Ex. <code>"I am going to f**king kill you"</code> ❌<br />
+        Ex. <code>"Steve, I am going to f**king kill you"</code> ✅
+      </p>
 
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
         <button
@@ -125,7 +160,6 @@ export default function Home() {
         </a>.
       </footer>
 
-      {/* LEGAL DISCLAIMER */}
       <div style={{ marginTop: "2rem", fontSize: "0.75rem", color: "#bbb", textAlign: "center" }}>
         Disclaimer: The Anger SanitAIzer is intended for humorous and illustrative purposes only.
         It does not provide legal, HR, or psychological advice. Use at your own discretion.
