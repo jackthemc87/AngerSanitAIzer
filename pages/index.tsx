@@ -109,7 +109,7 @@ export default function Home() {
 
       {/* Centered TIP */}
       <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4", textAlign: "center" }}>
-        <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.
+        <strong>TIP:</strong> Avoid using the word <em>"you"</em> without specifying who you're talking to as this confuses the Anger SanitAIzer.
         <br />
         <span style={{ display: "block", marginTop: "0.5rem" }}>❌ <code>"You are an idiot."</code></span>
         <span>✅ <code>"Jack, you are an idiot."</code></span>
