@@ -176,13 +176,13 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Instagram Share Prompt */}
+          {/* Updated Share Prompt */}
           <div style={{ textAlign: "center", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.9rem", color: "#555", marginBottom: "0.5rem" }}>
-              📸 <strong>Share this on Instagram!</strong>
+              📸 <strong>Share this!</strong>
             </p>
             <p style={{ fontSize: "0.75rem", color: "#888" }}>
-              Screenshot and tag <strong>@jackthemc</strong>
+              Screenshot and tag <strong>@jackthemc</strong> on IG & TikTok
             </p>
           </div>
         </>
