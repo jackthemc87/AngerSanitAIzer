@@ -64,9 +64,21 @@ export default function Home() {
             animation: shake 0.3s ease-in-out infinite;
           }
 
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+            opacity: 0;
+          }
+
           @media (prefers-reduced-motion: reduce) {
-            .shaky {
+            .shaky,
+            .fade-in {
               animation: none !important;
+              opacity: 1 !important;
             }
           }
         `}</style>
@@ -133,6 +145,7 @@ export default function Home() {
       {sanitized && (
         <>
           <div
+            className="fade-in"
             style={{
               marginTop: "2rem",
               backgroundColor: "#f9f9f9",
@@ -143,20 +156,33 @@ export default function Home() {
           >
             <h3 style={{ marginBottom: "0.5rem" }}>Clean Version:</h3>
             <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
+
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(sanitized);
+                alert("Copied to clipboard!");
+              }}
+              style={{
+                marginTop: "0.75rem",
+                fontSize: "0.85rem",
+                padding: "0.5rem 1rem",
+                backgroundColor: "#eee",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
+              📋 Copy to Clipboard
+            </button>
           </div>
 
-          {/* Social Sharing Prompt */}
+          {/* Instagram Share Prompt */}
           <div style={{ textAlign: "center", marginTop: "1rem" }}>
-            <p style={{ fontSize: "0.85rem", color: "#666", marginBottom: "0.5rem" }}>
-              Want to share your Clean Version? Screenshot it and post:
+            <p style={{ fontSize: "0.9rem", color: "#555", marginBottom: "0.5rem" }}>
+              📸 <strong>Share this on Instagram!</strong>
             </p>
-            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", fontSize: "1.2rem", flexWrap: "wrap" }}>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-              <a href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer">🐦 X</a>
-              <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
-            </div>
-            <p style={{ fontSize: "0.75rem", color: "#aaa", marginTop: "0.5rem" }}>
-              Don’t forget to tag <strong>@AngerSanitAIzer</strong> so we can see it!
+            <p style={{ fontSize: "0.75rem", color: "#888" }}>
+              Screenshot and tag <strong>@jackthemc</strong>
             </p>
           </div>
         </>
