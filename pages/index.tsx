@@ -63,34 +63,18 @@ export default function Home() {
             color: red;
             animation: shake 0.3s ease-in-out infinite;
           }
-
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          .fade-in {
-            animation: fadeIn 0.4s ease-in-out forwards;
-            opacity: 0;
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .shaky,
-            .fade-in {
-              animation: none !important;
-              opacity: 1 !important;
-            }
-          }
         `}</style>
       </Head>
 
-      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-        The <span className="shaky">Anger</span> SanitAIzer
-      </h1>
-
-      <p style={{ marginBottom: "1rem", color: "#666" }}>
-        Say the things you really want to say without the repercussions.
-      </p>
+      {/* Centered headline and subhead */}
+      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+        <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+          The <span className="shaky">Anger</span> SanitAIzer
+        </h1>
+        <p style={{ color: "#666" }}>
+          Say the things you really want to say without the repercussions.
+        </p>
+      </div>
 
       <textarea
         value={input}
@@ -107,15 +91,6 @@ export default function Home() {
         }}
       />
 
-      {/* Centered TIP */}
-      <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4", textAlign: "center" }}>
-        <strong>TIP:</strong> Avoid using the word <em>"you"</em> without specifying who you're talking to as this confuses the Anger SanitAIzer.
-        <br />
-        <span style={{ display: "block", marginTop: "0.5rem" }}>❌ <code>"You are an idiot."</code></span>
-        <span>✅ <code>"Jack, you are an idiot."</code></span>
-      </p>
-
-      {/* Centered button + note */}
       <div style={{ textAlign: "center", marginBottom: "1rem" }}>
         <button
           onClick={handleSanitize}
@@ -138,25 +113,31 @@ export default function Home() {
         </p>
       </div>
 
+      <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4", textAlign: "center" }}>
+        <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.
+        <br />
+        <span style={{ display: "block", marginTop: "0.5rem" }}>❌ <code>"You are an idiot."</code></span>
+        <span>✅ <code>"Jack, you are an idiot."</code></span>
+      </p>
+
       {error && (
-        <div style={{ color: "red", marginTop: "1rem" }}>{error}</div>
+        <div style={{ color: "red", marginTop: "1rem", textAlign: "center" }}>{error}</div>
       )}
 
       {sanitized && (
         <>
           <div
-            className="fade-in"
             style={{
               marginTop: "2rem",
               backgroundColor: "#f9f9f9",
               padding: "1rem",
               borderRadius: "8px",
               border: "1px solid #ddd",
+              animation: "fadeIn 0.4s ease-in-out",
             }}
           >
             <h3 style={{ marginBottom: "0.5rem" }}>Clean Version:</h3>
             <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
-
             <button
               onClick={() => {
                 navigator.clipboard.writeText(sanitized);
@@ -176,7 +157,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Updated Share Prompt */}
           <div style={{ textAlign: "center", marginTop: "1rem" }}>
             <p style={{ fontSize: "0.9rem", color: "#555", marginBottom: "0.5rem" }}>
               📸 <strong>Share this!</strong>
@@ -188,7 +168,7 @@ export default function Home() {
         </>
       )}
 
-      <footer style={{ marginTop: "3rem", fontSize: "0.85rem", color: "#999" }}>
+      <footer style={{ marginTop: "3rem", fontSize: "0.85rem", color: "#999", textAlign: "center" }}>
         The Anger SanitAIzer was created by Jack McNamara, a freelance advertising creative who would love to be hired by you.{" "}
         <a href="https://jack-mcnamara.com" target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
           See his book
