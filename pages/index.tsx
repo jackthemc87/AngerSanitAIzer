@@ -140,7 +140,7 @@ export default function Home() {
             border: "1px solid #ddd",
           }}
         >
-          <h3 style={{ marginBottom: "0.5rem" }}>SanitAIzed Version:</h3>
+          <h3 style={{ marginBottom: "0.5rem" }}>Clean Version:</h3>
           <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
         </div>
       )}
