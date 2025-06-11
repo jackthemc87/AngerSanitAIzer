@@ -42,7 +42,7 @@ export default function Home() {
         {/* Open Graph / LinkedIn Preview */}
         <meta property="og:title" content="The Anger SanitAIzer" />
         <meta property="og:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
-        <meta property="og:image" content="https://i.ibb.co/fznrRVN6/Correct-Size.png" />
+        <meta property="og:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
         <meta property="og:url" content="https://angersanitaizer.xyz" />
         <meta property="og:type" content="website" />
 
@@ -50,7 +50,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="The Anger SanitAIzer" />
         <meta name="twitter:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
-        <meta name="twitter:image" content="https://i.ibb.co/fznrRVN6/Correct-Size.png" />
+        <meta name="twitter:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
       </Head>
 
       <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>The Anger SanitAIzer</h1>
