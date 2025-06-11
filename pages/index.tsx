@@ -85,7 +85,7 @@ export default function Home() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         rows={8}
-        placeholder="Paste your angry message here..."
+        placeholder="Place your angry message here..."
         style={{
           width: "100%",
           padding: "1rem",
