@@ -48,7 +48,6 @@ export default function Home() {
         <meta name="twitter:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta name="twitter:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
 
-        {/* Always-on shake animation */}
         <style>{`
           @keyframes shake {
             0% { transform: translate(0); }
@@ -85,7 +84,7 @@ export default function Home() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         rows={8}
-        placeholder="Place your angry message here..."
+        placeholder="Paste your angry message here..."
         style={{
           width: "100%",
           padding: "1rem",
@@ -96,14 +95,15 @@ export default function Home() {
         }}
       />
 
-      {/* Updated TIP */}
-      <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4" }}>
-        <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.<br />
-        ❌ <code>"You are an idiot."</code><br />
-        ✅ <code>"Jack, you are an idiot."</code>
+      {/* Centered TIP */}
+      <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4", textAlign: "center" }}>
+        <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.
+        <br />
+        <span style={{ display: "block", marginTop: "0.5rem" }}>❌ <code>"You are an idiot."</code></span>
+        <span>✅ <code>"Jack, you are an idiot."</code></span>
       </p>
 
-      {/* Centered Button & Tip Text */}
+      {/* Centered button + note */}
       <div style={{ textAlign: "center", marginBottom: "1rem" }}>
         <button
           onClick={handleSanitize}
@@ -131,18 +131,35 @@ export default function Home() {
       )}
 
       {sanitized && (
-        <div
-          style={{
-            marginTop: "2rem",
-            backgroundColor: "#f9f9f9",
-            padding: "1rem",
-            borderRadius: "8px",
-            border: "1px solid #ddd",
-          }}
-        >
-          <h3 style={{ marginBottom: "0.5rem" }}>Clean Version:</h3>
-          <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
-        </div>
+        <>
+          <div
+            style={{
+              marginTop: "2rem",
+              backgroundColor: "#f9f9f9",
+              padding: "1rem",
+              borderRadius: "8px",
+              border: "1px solid #ddd",
+            }}
+          >
+            <h3 style={{ marginBottom: "0.5rem" }}>Clean Version:</h3>
+            <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>{sanitized}</pre>
+          </div>
+
+          {/* Social Sharing Prompt */}
+          <div style={{ textAlign: "center", marginTop: "1rem" }}>
+            <p style={{ fontSize: "0.85rem", color: "#666", marginBottom: "0.5rem" }}>
+              Want to share your Clean Version? Screenshot it and post:
+            </p>
+            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", fontSize: "1.2rem", flexWrap: "wrap" }}>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+              <a href="https://twitter.com/intent/tweet" target="_blank" rel="noopener noreferrer">🐦 X</a>
+              <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
+            </div>
+            <p style={{ fontSize: "0.75rem", color: "#aaa", marginTop: "0.5rem" }}>
+              Don’t forget to tag <strong>@AngerSanitAIzer</strong> so we can see it!
+            </p>
+          </div>
+        </>
       )}
 
       <footer style={{ marginTop: "3rem", fontSize: "0.85rem", color: "#999" }}>
