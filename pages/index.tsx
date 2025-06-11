@@ -48,7 +48,7 @@ export default function Home() {
         <meta name="twitter:description" content="Paste your angry message. Get a professional response back. It's like a PR firm for your rage." />
         <meta name="twitter:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
 
-        {/* Vibrating Animation */}
+        {/* Always-on shake animation */}
         <style>{`
           @keyframes shake {
             0% { transform: translate(0); }
@@ -63,11 +63,6 @@ export default function Home() {
             display: inline-block;
             color: red;
             animation: shake 0.3s ease-in-out infinite;
-            animation-play-state: paused;
-          }
-
-          .shaky:hover {
-            animation-play-state: running;
           }
 
           @media (prefers-reduced-motion: reduce) {
@@ -101,14 +96,15 @@ export default function Home() {
         }}
       />
 
-      {/* TIP */}
+      {/* Updated TIP */}
       <p style={{ fontSize: "0.75rem", color: "#888", marginBottom: "1rem", lineHeight: "1.4" }}>
         <strong>TIP:</strong> Try to avoid using the word <em>"you"</em> without specifying who you're talking to as this can confuse the Anger SanitAIzer.<br />
-        Ex. <code>"I am going to f**king kill you"</code> ❌<br />
-        Ex. <code>"Steve, I am going to f**king kill you"</code> ✅
+        ❌ <code>"You are an idiot."</code><br />
+        ✅ <code>"Jack, you are an idiot."</code>
       </p>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+      {/* Centered Button & Tip Text */}
+      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
         <button
           onClick={handleSanitize}
           disabled={loading}
@@ -120,14 +116,14 @@ export default function Home() {
             border: "none",
             cursor: "pointer",
             borderRadius: "4px",
+            fontSize: "1rem",
           }}
         >
           {loading ? "SanitAIzing..." : "SanitAIze It"}
         </button>
-
-        <span style={{ fontSize: "0.9rem", color: "#444" }}>
+        <p style={{ fontSize: "0.9rem", color: "#444", marginTop: "0.75rem" }}>
           Nothing strips out what's real like A.I. Why not make it work for you?
-        </span>
+        </p>
       </div>
 
       {error && (
