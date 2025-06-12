@@ -109,7 +109,7 @@ export default function Home() {
           {loading ? "SanitAIzing..." : "SanitAIze It"}
         </button>
         <p style={{ fontSize: "0.9rem", color: "#444", marginTop: "0.75rem" }}>
-          Nothing strips out emotion like A.I. Why not take advantage?
+          If A.I. is going to suck the soul out of everything, we might as well make it work for us.
         </p>
       </div>
 
