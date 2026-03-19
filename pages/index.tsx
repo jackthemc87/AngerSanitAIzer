@@ -39,7 +39,7 @@ export default function Home() {
         <title>The Anger SanitAIzer (Beta)</title>
         <meta name="description" content="Turn your angry work emails into HR-safe replies with AI." />
         <meta property="og:title" content="The Anger SanitAIzer" />
-        <meta property="og:description" content="Say what you shouldn't say without the repercussions." />
+        <meta property="og:description" content="Say the things you shouldn't say without the repercussions." />
         <meta property="og:image" content="https://i.ibb.co/fVQMH5GS/image.png" />
         <meta property="og:url" content="https://angersanitaizer.xyz" />
         <meta property="og:type" content="website" />
@@ -72,7 +72,7 @@ export default function Home() {
           The <span className="shaky">Anger</span> SanitAIzer
         </h1>
         <p style={{ color: "#666" }}>
-          Say what you shouldn't say without the repercussions.
+          Say the things you shouldn't say without the repercussions.
         </p>
       </div>
 
